@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Concepts Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .color-box:hover {
+            transform: scale(1.05);
+        }
+        
+        #red { background-color: #e74c3c; }
+        #green { background-color: #2ecc71; }
+        #blue { background-color: #3498db; }
+        
+        #color-display {
+            width: 200px;
+            height: 50px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            background-color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .todo-input {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .todo-input input {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        
+        #todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+        
+        .todo-text {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        
+        .completed {
+            text-decoration: line-through;
+            color: #7f8c8d;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+            margin-left: 10px;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JavaScript Concepts Demo</h1>
+        <p>Exploring event listeners, form validation, and interactive elements</p>
+    </header>
+    
+    <section id="event-listeners">
+        <h2>1. Event Listeners</h2>
+        <p>Click on a color to change the display box:</p>
+        
+        <div class="color-boxes">
+            <div class="color-box" id="red"></div>
+            <div class="color-box" id="green"></div>
+            <div class="color-box" id="blue"></div>
+        </div>
+        
+        <div id="color-display">Click a color</div>
+        
+        <div class="hover-demo">
+            <p>Mouse over the button below to see event handling:</p>
+            <button id="hover-button">Hover Over Me</button>
+            <p id="hover-result"></p>
+        </div>
+    </section>
+    
+    <section id="form-validation">
+        <h2>2. Form Validation</h2>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+                <div class="error" id="username-error">Username must be at least 4 characters long</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <div class="error" id="email-error">Please enter a valid email address</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <div class="error" id="password-error">Password must be at least 8 characters with letters and numbers</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password">
+                <div class="error" id="confirm-password-error">Passwords do not match</div>
+            </div>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <div class="success-message" id="form-success">
+            Form submitted successfully!
+        </div>
+    </section>
+    
+    <section id="interactive-elements">
+        <h2>3. Interactive Elements</h2>
+        <h3>Todo List</h3>
+        
+        <div class="todo-input">
+            <input type="text" id="todo-input" placeholder="Add a new task">
+            <button id="add-todo">Add</button>
+        </div>
+        
+        <ul id="todo-list"></ul>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
